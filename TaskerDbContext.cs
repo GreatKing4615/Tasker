@@ -21,7 +21,7 @@ namespace Tasker
                 .HasOne(u => u.User)
                 .WithMany(uw => uw.UserOrders)
                 .HasForeignKey(us => us.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<UserExec>()
                .HasOne(u => u.User)

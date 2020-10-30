@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Tasker.Models
 {
@@ -27,7 +29,7 @@ namespace Tasker.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfLastChange { get; set; }
-        //[JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter))]
         public StatusTask Status { get; set; }
 
 

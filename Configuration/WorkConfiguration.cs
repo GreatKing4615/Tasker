@@ -9,7 +9,7 @@ namespace TaskManager.Configuration
     {
         public void Configure(EntityTypeBuilder<Work> builder)
         {
-            builder.Property(p => p.Status).Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            builder.Property(p => p.OrderWorks).Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
         }
 
     }

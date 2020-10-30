@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Tasker.Models
 {
-    //[JsonConverter(typeof(StringEnumConverter))]
     public enum StatusUser
     {
         Active,
@@ -24,7 +25,7 @@ namespace Tasker.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfLastChange { get; set; }
-        //[JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public StatusUser Status { get; set; }
         //[NotMapped]
         public List<UserOrder> UserOrders { get; set; }

@@ -32,7 +32,7 @@ namespace TaskManager.Builder
 
         public override void BuildStatus()
         {
-            User.Status = (Tasker.Models.StatusUser)new Random().Next(1, 4);
+            User.Status = (Tasker.Models.StatusUser)new Random().Next(1, 3);
         }
 
     }

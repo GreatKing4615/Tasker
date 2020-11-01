@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -18,6 +19,8 @@ namespace Tasker
                 var services = scope.ServiceProvider;
                 try
                 {
+                    var context = services.GetRequiredService<TaskerDbContext>();
+                    context.Database.Migrate();
                     SeedData.Initialize(services);
                 }
                 catch (Exception ex)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using Newtonsoft.Json.Converters;
 
 namespace Tasker.Models
 {
@@ -29,10 +30,10 @@ namespace Tasker.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfLastChange { get; set; }
-        //[JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public StatusTask Status { get; set; }
 
-        [NotMapped]
+        //[NotMapped]
         public List<UserOrder> OrderWorks { get; set; }
         public List<UserExec> ExecWorks { get; set; }
 

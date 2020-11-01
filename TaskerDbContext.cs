@@ -16,6 +16,11 @@ namespace Tasker
 
             modelBuilder.Entity<UserOrder>().HasKey(t => new { t.UserId, t.OrderId });
             modelBuilder.Entity<UserExec>().HasKey(t => new { t.UserId, t.ExecuteId });
+            
+
+
+
+
 
             modelBuilder.Entity<UserOrder>()
                 .HasOne(u => u.User)

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Tasker.Models
 {
@@ -30,7 +32,7 @@ namespace Tasker.Models
         //[JsonConverter(typeof(StringEnumConverter))]
         public StatusTask Status { get; set; }
 
-
+        [NotMapped]
         public List<UserOrder> OrderWorks { get; set; }
         public List<UserExec> ExecWorks { get; set; }
 
